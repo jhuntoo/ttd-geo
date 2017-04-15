@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "baseUrl": "",
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  }
+}
