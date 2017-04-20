@@ -4,7 +4,9 @@
   "description": "``` nvm install v7.9.0 nvm use ```",
   "main": "index.js",
   "scripts": {
-    "start" : "ts-node ./src/main.ts",
+    "postinstall": "cd ./node_modules/geoip-lite && node scripts/updatedb.js",
+    "start": "TS_NODE_PROJECT=config/tsconfig.json  ts-node ./src/main.ts",
+    "test:integration": "TS_NODE_PROJECT=config/tsconfig.integration.json node_modules/.bin/mocha --opts ./config/mocha.integration.opts",
     "test:unit": "TS_NODE_PROJECT=config/tsconfig.unit.json node_modules/.bin/mocha --opts ./config/mocha.unit.opts"
   },
   "repository": {
@@ -18,13 +20,32 @@
   },
   "homepage": "https://github.com/jhuntoo/ttd-geo#readme",
   "dependencies": {
+    "@types/async": "2.0.40",
+    "async": "2.3.0",
+    "better-console": "1.0.0",
+    "cli-spinner": "0.2.6",
+    "cli-table": "0.3.1",
+    "event-stream": "3.3.4",
+    "geoip-lite": "1.2.0",
+    "limiter": "1.1.0",
+    "lodash": "4.17.4",
+    "request": "2.81.0",
     "ts-node": "3.0.2",
-    "typescript": "2.2.2"
+    "tsv": "0.2.0",
+    "typescript": "2.2.2",
+    "validator": "7.0.0"
   },
   "devDependencies": {
     "@types/chai": "3.5.0",
+    "@types/event-stream": "3.3.31",
+    "@types/geoip-lite": "1.1.29",
+    "@types/lodash": "4.14.62",
     "@types/mocha": "2.2.40",
+    "@types/node": "7.0.12",
+    "@types/request": "0.0.42",
+    "@types/validator": "6.2.0",
     "chai": "3.5.0",
-    "mocha": "3.2.0"
+    "mocha": "3.2.0",
+    "typemoq": "1.4.1"
   }
 }
